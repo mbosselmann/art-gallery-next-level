@@ -1,12 +1,14 @@
-import ArtPieces from "@/components/ArtPieces";
+import PageContent from "@/components/PageContent/index.js";
+import fetchArtPieces from "@/lib/fetchArtPieces.js";
 
-export default function Page() {
+export default async function Page() {
+  const pieces = await fetchArtPieces();
   return (
     <>
       <header>
         <h1>Your favorite Art Pieces</h1>
       </header>
-      <ArtPieces />
+      <PageContent pieces={pieces} />
     </>
   );
 }

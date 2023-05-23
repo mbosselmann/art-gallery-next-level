@@ -1,12 +1,15 @@
 import ArtPieces from "@/components/ArtPieces";
+import fetchArtPieces from "@/lib/fetchArtPieces.js";
 
-export default function Page() {
+export default async function Page() {
+  const pieces = await fetchArtPieces();
+
   return (
     <>
       <header>
         <h1>Art Pieces</h1>
       </header>
-      <ArtPieces />
+      <ArtPieces pieces={pieces} />
     </>
   );
 }
